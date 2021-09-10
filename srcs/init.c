@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/10 18:27:42 by zminhas          ###   ########.fr       */
+/*   Created: 2021/09/10 18:13:40 by zminhas           #+#    #+#             */
+/*   Updated: 2021/09/10 18:30:30 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct		s_stack
+void	init_var(t_var *var)
 {
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	int				num;
-}					t_stack;
-
-typedef struct	s_var
-{
-	t_stack	*a;
-	t_stack	*b;
-}				t_var;
-
-void	init_var(t_var *var);
-
-#endif
+	var->a = malloc(sizeof(t_stack));
+	var->b = malloc(sizeof(t_stack));
+	if (!var->a || !var->b)
+		exit(1);
+}
