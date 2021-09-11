@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:13:40 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/10 18:30:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/11 14:35:15 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	init_var(t_var *var)
 {
-	var->a = malloc(sizeof(t_stack));
 	var->b = malloc(sizeof(t_stack));
-	if (!var->a || !var->b)
+	if (!var->b)
 		exit(1);
+	var->b->next = NULL;
+	var->b->prev = NULL;
 }

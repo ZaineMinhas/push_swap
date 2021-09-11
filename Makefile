@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/08 19:29:00 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/11 15:06:21 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,8 @@ WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
 SRCS	=	main.c\
-			srcs/push.c\
-			srcs/reverse_rotate.c\
-			srcs/rotate.c\
-			srcs/swap.c
+			srcs/init.c\
+			srcs/read.c\
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -37,7 +35,7 @@ LIB_PATH	=	./libft
 
 all:	${OBJS}
 		@make -C ${LIB_PATH}
-		@gcc -Wall -Wextra -Werror main.c $(LIB_PATH)/libft.a -o $(EXEC_1)
+		@gcc -Wall -Wextra -Werror main.c $(LIB_PATH)/libft.a -o $(EXEC)
 		@echo "${GREEN}push_swap created !${RESET}"
 
 clean:
