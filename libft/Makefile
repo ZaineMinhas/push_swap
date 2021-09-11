@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 18:35:49 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/11 14:45:16 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/11 17:06:45 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ bonus:		${OBJS_BONUS}
 
 full:		${OBJS} ${OBJS_BONUS}
 			@ar -rcs ${NAME} ${OBJS} ${OBJS_BONUS}
-			@echo "${PURPLE}JeeJ fuller !${RESET}"
+			@echo "${PURPLE}LIBFT READY !!!${RESET}"
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/11 15:06:21 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/11 18:08:10 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,11 @@ RESET		= $(shell tput -Txterm sgr0)
 SRCS	=	main.c\
 			srcs/init.c\
 			srcs/read.c\
+			srcs/utils.c\
 
 OBJS	=	${SRCS:.c=.o}
+
+NAME	=	push_swap.a
 
 EXEC	=	push_swap
 
@@ -34,17 +37,24 @@ LIB_PATH	=	./libft
 		@gcc -Wall -Wextra -Werror -c -I./ $< -o ${<:.c=.o}
 
 all:	${OBJS}
-		@make -C ${LIB_PATH}
-		@gcc -Wall -Wextra -Werror main.c $(LIB_PATH)/libft.a -o $(EXEC)
+		@clear
+		@make full -C ${LIB_PATH}
+		@mv ${LIB_PATH}/libft.a $(NAME)
+		@ar -rcs $(NAME) ${OBJS}
+		@gcc -Wall -Wextra -Werror $(NAME) -o $(EXEC)
 		@echo "${GREEN}push_swap created !${RESET}"
 
 clean:
+		@clear
 		@rm -f ${OBJS}
+		@rm -f $(NAME)
 		@make clean -C ${LIB_PATH}
 		@echo "${YELLOW}Objects cleaned !${RESET}"
 
 fclean:
+		@clear
 		@rm -f ${OBJS}
+		@rm -f $(NAME)
 		@rm -f $(EXEC)
 		@make fclean -C ${LIB_PATH}
 		@echo "${RED}fclean done !${RESET}"
