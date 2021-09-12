@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 18:35:49 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/11 17:06:45 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/12 18:33:00 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ RESET		= $(shell tput -Txterm sgr0)
 SRCS	=	ft_atoi.c\
 			ft_bzero.c\
 			ft_calloc.c\
+			ft_intlen.c\
 			ft_isalnum.c\
 			ft_isalpha.c\
 			ft_isascii.c\

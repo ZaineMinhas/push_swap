@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 16:54:09 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 18:34:28 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,12 @@
 void	return_error(int index)
 {
 	if (!index)
-	{
 		ft_putstr_fd("Malloc error\n", 1);
-		exit(1);
-	}
 	if (index == 1)
-	{
 		ft_putstr_fd("Wrong argument\n", 1);
-		exit(1);
-	}
 	if (index == 2)
-	{
 		ft_putstr_fd("Duplicate argument\n", 1);
-		exit(1);
-	}
+	exit(1);
 }
 
 void	lst_rewind(t_stack **lst)

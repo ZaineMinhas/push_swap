@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:09:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/18 17:11:01 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 18:50:50 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int nb)
+static int	ft_intlen_remix(int nb)
 {
 	int		len;
 
@@ -41,12 +41,12 @@ char	*ft_itoa(int n)
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	pos_neg = ft_posneg(n);
-	dest = (char *)ft_calloc(sizeof(char), ft_intlen(n) + 1 + pos_neg);
+	dest = (char *)ft_calloc(sizeof(char), ft_intlen_remix(n) + 1 + pos_neg);
 	if (!dest)
 		return (NULL);
 	if (n < 0)
 		n = -n;
-	i = ft_intlen(n) + pos_neg;
+	i = ft_intlen_remix(n) + pos_neg;
 	while (i > 0)
 	{
 		dest[i-- - 1] = (n % 10) + 48;
