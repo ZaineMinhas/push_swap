@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:43:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 16:47:49 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 18:17:18 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	del_top(t_stack **old)
 
 static void	add_top(t_stack **new, int num)
 {
-	t_stack *elem;
+	t_stack	*elem;
 
 	if (*new)
 	{

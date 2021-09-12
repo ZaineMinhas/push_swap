@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 16:48:33 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 18:19:31 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-typedef struct		s_stack
+typedef struct s_stack
 {
 	struct s_stack	*next;
 	struct s_stack	*prev;
 	int				num;
-}					t_stack;
+}				t_stack;
 
-typedef struct	s_var
+typedef struct s_var
 {
 	t_stack	*a;
 	t_stack	*b;

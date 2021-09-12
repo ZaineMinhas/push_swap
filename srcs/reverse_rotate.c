@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:44:03 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 15:19:33 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 18:17:49 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rra(t_stack **a)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	lst_forward(a);
 	tmp = *a;
@@ -28,7 +28,7 @@ void	rra(t_stack **a)
 
 void	rrb(t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	lst_forward(b);
 	tmp = *b;
@@ -39,9 +39,10 @@ void	rrb(t_stack **b)
 	(*b)->prev->next = *b;
 	ft_putendl_fd("rrb", 1);
 }
+
 void	rrr(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	lst_forward(a);
 	tmp = *a;
