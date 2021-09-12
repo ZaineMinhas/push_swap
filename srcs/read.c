@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 13:33:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/11 18:33:56 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 16:21:13 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	read_args(int ac, char **av, t_var *var)
 	i = 0;
 	while (++i < ac)
 	{
-		if (!ft_isdigit(av[i][0]) && av[i][0] != ' ' && \
-			av[i][0] != '+' && av[i][0] != '-')
+		if (!ft_isdigit(av[i][0]) && av[i][0] != '+' && av[i][0] != '-')
 			return_error(1);
 		add_stack(ft_atoi(av[i]), &var->a);
 	}

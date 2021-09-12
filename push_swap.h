@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/11 20:21:49 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 16:48:33 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	ss(t_stack **a, t_stack **b);
 /*
 ** PUSH FUNCTIONS
 */
+
+void	pa(t_stack **b, t_stack **a);
+void	pb(t_stack **a, t_stack **b);
 
 /*
 ** ROTATE FUNCTIONS

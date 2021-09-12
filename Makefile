@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/11 18:08:10 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/12 16:49:05 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,11 @@ WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
 SRCS	=	main.c\
-			srcs/init.c\
+			srcs/push.c\
 			srcs/read.c\
+			srcs/reverse_rotate.c\
+			srcs/rotate.c\
+			srcs/swap.c\
 			srcs/utils.c\
 
 OBJS	=	${SRCS:.c=.o}

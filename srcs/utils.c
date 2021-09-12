@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/11 18:50:43 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/12 16:54:09 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,25 @@ void	return_error(int index)
 
 void	lst_rewind(t_stack **lst)
 {
-	while ((*lst)->prev)
-		*lst = (*lst)->prev;
+	if (*lst)
+		while ((*lst)->prev)
+			*lst = (*lst)->prev;
 }
 
 void	lst_forward(t_stack **lst)
 {
-	while ((*lst)->next)
-		*lst = (*lst)->next;
+	if (*lst)
+		while ((*lst)->next)
+			*lst = (*lst)->next;
 }
 
 void	print_lst(t_stack **lst)
 {
+	if (!*lst)
+	{
+		printf("non\n");
+		return ;
+	}
 	lst_rewind(lst);
 	while ((*lst)->next)
 	{
