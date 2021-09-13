@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:43:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 18:17:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/13 18:51:32 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	del_top(t_stack **old)
 {
+	lst_rewind(old);
 	if (*old)
 	{
-		lst_rewind(old);
 		if (!(*old)->next)
 		{
 			free(*old);

@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/13 15:27:32 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/13 19:58:36 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,10 @@ SRCS	=	main.c\
 			srcs/read.c\
 			srcs/reverse_rotate.c\
 			srcs/rotate.c\
-			srcs/sorted.c\
+			srcs/sort.c\
 			srcs/swap.c\
 			srcs/utils.c\
+			srcs/utils2.c\
 
 OBJS	=	${SRCS:.c=.o}
 

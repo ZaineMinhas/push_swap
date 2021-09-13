@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/13 15:49:46 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/13 19:52:23 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,27 @@ int	lstlen(t_stack **lst)
 
 	if (!(*lst))
 		return (0);
+	i = 1;
+	lst_rewind(lst);
 	while ((*lst)->next)
 	{
 		*lst = (*lst)->next;
 		i++;
 	}
 	return (i);
+}
+
+int	sorted(t_stack **a)
+{
+	t_stack	*tmp;
+
+	lst_rewind(a);
+	tmp = *a;
+	while ((*a)->next)
+	{
+		if ((*a)->num > (*a)->next->num)
+			return (0);
+		*a = (*a)->next;
+	}
+	return (1);
 }
