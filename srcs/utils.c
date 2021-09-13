@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 18:34:28 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/13 15:49:46 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,16 @@ void	lst_forward(t_stack **lst)
 			*lst = (*lst)->next;
 }
 
-void	print_lst(t_stack **lst)
+int	lstlen(t_stack **lst)
 {
-	if (!*lst)
-	{
-		printf("non\n");
-		return ;
-	}
-	lst_rewind(lst);
+	int	i;
+
+	if (!(*lst))
+		return (0);
 	while ((*lst)->next)
 	{
-		printf("%d\n", (*lst)->num);
 		*lst = (*lst)->next;
+		i++;
 	}
-	ft_putnbr_fd((*lst)->num, 1);
-	ft_putchar_fd('\n', 1);
+	return (i);
 }

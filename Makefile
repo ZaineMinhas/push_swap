@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/12 16:49:05 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/13 15:27:32 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	=	main.c\
 			srcs/read.c\
 			srcs/reverse_rotate.c\
 			srcs/rotate.c\
+			srcs/sorted.c\
 			srcs/swap.c\
 			srcs/utils.c\
 
