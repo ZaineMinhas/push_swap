@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 19:05:22 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/13 20:19:23 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/14 14:34:07 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,19 @@ int	find_biggest(t_stack **lst)
 		*lst = (*lst)->next;
 	}
 	return (biggest);
+}
+
+int	find_smallest(t_stack **lst)
+{
+	int	smallest;
+
+	lst_rewind(lst);
+	smallest = (*lst)->num;
+	while ((*lst)->next)
+	{
+		if (smallest > (*lst)->next->num)
+			smallest = (*lst)->next->num;
+		*lst = (*lst)->next;
+	}
+	return (smallest);
 }

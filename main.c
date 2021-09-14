@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/13 20:36:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/14 17:35:32 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void	norm_loop(t_stack **a, t_stack **b)
 		*b = (*b)->next;
 }
 
-static void	print_lst(t_stack **a, t_stack **b)
+void	print_lst(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 
-	system("clear");
+	//system("clear");
 	lst_rewind(a);
 	lst_rewind(b);
 	tmp_a = *a;
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
-	print_lst(&var.a, &var.b);
+	//print_lst(&var.a, &var.b);
 	if (!sorted(&var.a))
 		sort(&var);
 	print_lst(&var.a, &var.b);

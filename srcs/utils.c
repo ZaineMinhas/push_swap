@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/13 19:52:23 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/14 17:23:40 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ void	lst_forward(t_stack **lst)
 			*lst = (*lst)->next;
 }
 
-int	lstlen(t_stack **lst)
+int	lstlen(t_stack *lst)
 {
 	int	i;
 
-	if (!(*lst))
+	if (!(lst))
 		return (0);
 	i = 1;
-	lst_rewind(lst);
-	while ((*lst)->next)
+	lst_rewind(&lst);
+	while ((lst)->next)
 	{
-		*lst = (*lst)->next;
+		lst = (lst)->next;
 		i++;
 	}
 	return (i);
