@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/14 17:35:32 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/18 19:16:56 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,14 @@ static void	norm_loop(t_stack **a, t_stack **b)
 		*b = (*b)->next;
 }
 
-void	print_lst(t_stack **a, t_stack **b)
+void	print_lst(t_stack *a, t_stack *b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-
 	//system("clear");
-	lst_rewind(a);
-	lst_rewind(b);
-	tmp_a = *a;
-	tmp_b = *b;
+	lst_rewind(&a);
+	lst_rewind(&b);
 	write(1, "   A   -   B   \n", 16);
-	while (*a || *b)
-		norm_loop(a, b);
-	*a = tmp_a;
-	*b = tmp_b;
+	while (a || b)
+		norm_loop(&a, &b);
 }
 
 int	main(int argc, char **argv)
@@ -56,8 +49,10 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
-	//print_lst(&var.a, &var.b);
+	print_lst(var.a, var.b);
 	if (!sorted(&var.a))
 		sort(&var);
-	print_lst(&var.a, &var.b);
+	print_lst(var.a, var.b);
 }
+
+//la commande  : make && make clean && ./push_swap 1 2 3 7 8 14 19 20 4 16 9 5 18 17 13 6 10 11 12

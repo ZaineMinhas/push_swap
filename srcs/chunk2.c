@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   chunk2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 19:05:22 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/18 19:11:38 by zminhas          ###   ########.fr       */
+/*   Created: 2021/09/18 18:23:12 by zminhas           #+#    #+#             */
+/*   Updated: 2021/09/18 19:18:22 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_biggest(t_stack *lst)
+int	sort_stack_b(t_stack **b, int num, int len)
 {
-	int	biggest;
+	int	i;
+	int	j;
 
-	lst_rewind(&lst);
-	biggest = lst->num;
-	while (lst->next)
+	if (!*b || !(*b)->next)
+		return (0);
+	if (find_smallest(*b) > num)
+		return (-1);
+	else if (num > find_biggest(*b))
+		return (0);
+	i = 0;
+	lst_rewind(b);
+	while ((*b)->next && num < (*b)->num)
 	{
-		if (biggest < lst->next->num)
-			biggest = lst->next->num;
-		lst = lst->next;
+		*b = (*b)->next;
+		i++;
 	}
-	return (biggest);
-}
-
-int	find_smallest(t_stack *lst)
-{
-	int	smallest;
-
-	lst_rewind(&lst);
-	smallest = lst->num;
-	while (lst->next)
-	{
-		if (smallest > lst->next->num)
-			smallest = lst->next->num;
-		lst = lst->next;
-	}
-	return (smallest);
+	j = -1;
+	if (i < len / 2)
+		while (++j < i)
+			rb(b);
+	else
+		while (++j < len - i)
+			rrb(b);
+	return (i);
 }

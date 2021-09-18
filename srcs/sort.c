@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:53:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/14 17:24:37 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/18 19:19:12 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static void	sort3(t_stack **a)
 {
 	int	biggest;
 
-	biggest = find_biggest(a);
+	biggest = find_biggest(*a);
 	lst_rewind(a);
 	if ((*a)->num == biggest)
 		ra(a);
 	else if ((*a)->next->num == biggest)
-		rra(a); 
+		rra(a);
 	lst_rewind(a);
 	if ((*a)->num > (*a)->next->num)
 		sa(a);
@@ -29,9 +29,9 @@ static void	sort3(t_stack **a)
 
 static void	sort4(t_stack **a, t_stack **b)
 {
-	int small;
+	int	small;
 
-	small = find_smallest(a);
+	small = find_smallest(*a);
 	lst_rewind(a);
 	if ((*a)->num == small)
 		;
@@ -51,9 +51,9 @@ static void	sort4(t_stack **a, t_stack **b)
 
 static void	sort5(t_stack **a, t_stack **b)
 {
-	int small;
+	int	small;
 
-	small = find_smallest(a);
+	small = find_smallest(*a);
 	printf("ui = %d\n", small);
 	lst_rewind(a);
 	if ((*a)->num == small)
@@ -75,7 +75,6 @@ static void	sort5(t_stack **a, t_stack **b)
 	pb(a, b);
 	sort4(a, b);
 	pa(b, a);
-
 }
 
 void	sort(t_var *var)

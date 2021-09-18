@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/14 17:35:28 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/18 19:18:04 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	sort_tab(int *array, int size)
 {
-	int i;
+	int	i;
 	int	j;
 	int	tmp;
 
@@ -36,7 +36,7 @@ static void	sort_tab(int *array, int size)
 
 int	find_hold_first(t_var *var, int min, int max)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	lst_rewind(&var->a);
@@ -45,7 +45,7 @@ int	find_hold_first(t_var *var, int min, int max)
 		if (var->a->num <= max && var->a->num >= min)
 		{
 			var->hold_first = var->a->num;
-			break;
+			break ;
 		}
 		i++;
 		var->a = var->a->next;
@@ -64,7 +64,7 @@ int	find_hold_last(t_var *var, int min, int max)
 		if (var->a->num <= max && var->a->num >= min)
 		{
 			var->hold_last = var->a->num;
-			break;
+			break ;
 		}
 		i++;
 		var->a = var->a->prev;
@@ -85,7 +85,18 @@ void	move_chunk(t_var *var)
 	else
 		while (j--)
 			rra(&var->a);
+	lst_rewind(&var->a);
+	i = sort_stack_b(&var->b, var->a->num, lstlen(var->b));
 	pb(&var->a, &var->b);
+	j = -1;
+	if (i == -1)
+		rb(&var->b);
+	else if (i && i < (lstlen(var->b) - 1) / 2)
+		while (++j < i)
+			rrb(&var->b);
+	else if (i)
+		while (++j < lstlen(var->b) - i)
+			rb(&var->b);
 }
 
 void	find_chunks(t_var *var)

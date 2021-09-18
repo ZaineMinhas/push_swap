@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/14 17:24:58 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/18 19:10:22 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	sort(t_var *var);
 int		sorted(t_stack **a);
 void	find_chunks(t_var *var);
 void	move_chunk(t_var *var);
+int		sort_stack_b(t_stack **b, int num, int len);
 int		find_hold_first(t_var *var, int min, int max);
 int		find_hold_last(t_var *var, int min, int max);
 
@@ -80,12 +81,12 @@ void	rrr(t_stack **a, t_stack **b);
 /*
 ** UTILS FUNCTIONS
 */
-void	print_lst(t_stack **a, t_stack **b);
+void	print_lst(t_stack *a, t_stack *b);
 void	return_error(int index);
 void	lst_rewind(t_stack **lst);
 void	lst_forward(t_stack **lst);
 int		lstlen(t_stack *lst);
-int		find_biggest(t_stack **lst);
-int		find_smallest(t_stack **lst);
+int		find_biggest(t_stack *lst);
+int		find_smallest(t_stack *lst);
 
 #endif
