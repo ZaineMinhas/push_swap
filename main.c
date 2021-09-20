@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/18 19:16:56 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/20 19:14:17 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
-	print_lst(var.a, var.b);
 	if (!sorted(&var.a))
 		sort(&var);
 	print_lst(var.a, var.b);

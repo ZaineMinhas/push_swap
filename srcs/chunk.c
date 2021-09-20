@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/18 19:18:04 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/20 19:10:43 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,51 +34,13 @@ static void	sort_tab(int *array, int size)
 	}
 }
 
-int	find_hold_first(t_var *var, int min, int max)
-{
-	int	i;
-
-	i = 0;
-	lst_rewind(&var->a);
-	while (var->a->next)
-	{
-		if (var->a->num <= max && var->a->num >= min)
-		{
-			var->hold_first = var->a->num;
-			break ;
-		}
-		i++;
-		var->a = var->a->next;
-	}
-	return (i);
-}
-
-int	find_hold_last(t_var *var, int min, int max)
-{
-	int	i;
-
-	i = 0;
-	lst_forward(&var->a);
-	while (var->a->prev)
-	{
-		if (var->a->num <= max && var->a->num >= min)
-		{
-			var->hold_last = var->a->num;
-			break ;
-		}
-		i++;
-		var->a = var->a->prev;
-	}
-	return (++i);
-}
-
-void	move_chunk(t_var *var)
+void	move_chunk(t_var *var, int min, int max)
 {
 	int	i;
 	int	j;
 
-	i = find_hold_first(var, INT_MIN, var->quarter);
-	j = find_hold_last(var, INT_MIN, var->quarter);
+	i = find_hold_first(var, min, max);
+	j = find_hold_last(var, min, max);
 	if (i < j)
 		while (i--)
 			ra(&var->a);
@@ -97,6 +59,29 @@ void	move_chunk(t_var *var)
 	else if (i)
 		while (++j < lstlen(var->b) - i)
 			rb(&var->b);
+	lst_rewind(&var->a);
+	lst_rewind(&var->b);
+}
+
+void	move_all_chunks(t_var *var, int tab_len)
+{
+	int	i;
+
+	i = -1;
+	printf("ui\n");
+	while (++i <= tab_len / 4)
+		move_chunk(var, INT_MIN, var->quarter);
+	i--;
+	while (++i <= tab_len / 2)
+		move_chunk(var, var->quarter + 1, var->half);
+	i--;
+	while (++i <= (tab_len * 3) / 4)
+		move_chunk(var, var->half + 1, var->third);
+	i--;
+	while (++i <= tab_len)
+		move_chunk(var, var->third + 1, INT_MAX);
+	while (i--)
+		pa(&var->b, &var->a);
 }
 
 void	find_chunks(t_var *var)
@@ -119,6 +104,6 @@ void	find_chunks(t_var *var)
 	var->quarter = array[i / 4];
 	var->half = array[i / 2];
 	var->third = array[i * 3 / 4];
+	move_all_chunks(var, i);
 	free(array);
-	move_chunk(var);
 }
