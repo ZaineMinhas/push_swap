@@ -6,11 +6,11 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/14 17:23:40 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 19:04:18 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/checker.h"
 
 void	return_error(int index)
 {
@@ -37,33 +37,31 @@ void	lst_forward(t_stack **lst)
 			*lst = (*lst)->next;
 }
 
-int	lstlen(t_stack *lst)
+static void	norm_loop(t_stack **a, t_stack **b)
 {
-	int	i;
+	int	space;
 
-	if (!(lst))
-		return (0);
-	i = 1;
-	lst_rewind(&lst);
-	while ((lst)->next)
-	{
-		lst = (lst)->next;
-		i++;
-	}
-	return (i);
+	space = 7;
+	if (*a)
+		space -= ft_intlen((*a)->num);
+	write(1, "       ", space);
+	if (*a)
+		ft_putnbr_fd((*a)->num, 1);
+	write(1, "|", 1);
+	if (*b)
+		ft_putnbr_fd((*b)->num, 1);
+	write(1, "\n", 1);
+	if (*a)
+		*a = (*a)->next;
+	if (*b)
+		*b = (*b)->next;
 }
 
-int	sorted(t_stack **a)
+void	print_lst(t_stack *a, t_stack *b)
 {
-	t_stack	*tmp;
-
-	lst_rewind(a);
-	tmp = *a;
-	while ((*a)->next)
-	{
-		if ((*a)->num > (*a)->next->num)
-			return (0);
-		*a = (*a)->next;
-	}
-	return (1);
+	lst_rewind(&a);
+	lst_rewind(&b);
+	write(1, "   A   -   B   \n", 16);
+	while (a || b)
+		norm_loop(&a, &b);
 }

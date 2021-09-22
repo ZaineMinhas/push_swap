@@ -6,11 +6,11 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:53:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/20 19:17:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 18:01:19 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	sort3(t_stack **a)
 {
@@ -54,7 +54,6 @@ static void	sort5(t_stack **a, t_stack **b)
 	int	small;
 
 	small = find_smallest(*a);
-	printf("ui = %d\n", small);
 	lst_rewind(a);
 	if ((*a)->num == small)
 		;

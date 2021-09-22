@@ -6,11 +6,11 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/20 19:10:43 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 18:00:31 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	sort_tab(int *array, int size)
 {
@@ -68,7 +68,6 @@ void	move_all_chunks(t_var *var, int tab_len)
 	int	i;
 
 	i = -1;
-	printf("ui\n");
 	while (++i <= tab_len / 4)
 		move_chunk(var, INT_MIN, var->quarter);
 	i--;

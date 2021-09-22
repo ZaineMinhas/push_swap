@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/20 19:14:17 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 18:30:05 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	norm_loop(t_stack **a, t_stack **b)
 {
@@ -34,7 +34,6 @@ static void	norm_loop(t_stack **a, t_stack **b)
 
 void	print_lst(t_stack *a, t_stack *b)
 {
-	//system("clear");
 	lst_rewind(&a);
 	lst_rewind(&b);
 	write(1, "   A   -   B   \n", 16);
@@ -52,6 +51,8 @@ int	main(int argc, char **argv)
 	if (!sorted(&var.a))
 		sort(&var);
 	print_lst(var.a, var.b);
+	exit(1);
+	return (0);
 }
 
 //la commande  : make && make clean && ./push_swap 1 2 3 7 8 14 19 20 4 16 9 5 18 17 13 6 10 11 12

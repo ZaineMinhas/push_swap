@@ -6,11 +6,11 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:43:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/18 18:55:28 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 18:21:15 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/checker.h"
 
 static void	del_top(t_stack **old)
 {
@@ -67,7 +67,6 @@ void	pa(t_stack **b, t_stack **a)
 		tmp = (*b)->num;
 		del_top(b);
 		add_top(a, tmp);
-		ft_putendl_fd("pa", 1);
 	}
 }
 
@@ -81,6 +80,5 @@ void	pb(t_stack **a, t_stack **b)
 		tmp = (*a)->num;
 		del_top(a);
 		add_top(b, tmp);
-		ft_putendl_fd("pb", 1);
 	}
 }

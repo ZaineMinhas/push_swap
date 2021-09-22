@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/20 18:42:22 by zminhas          ###   ########.fr       */
+/*   Created: 2021/09/22 18:03:02 by zminhas           #+#    #+#             */
+/*   Updated: 2021/09/22 19:17:57 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include <stdio.h>
+# include "gnl/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -29,23 +29,11 @@ typedef struct s_var
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		quarter;
-	int		half;
-	int		third;
-	int		hold_first;
-	int		hold_last;
 }				t_var;
 
-void	init_var(t_var *var);
 void	read_args(int ac, char **av, t_var *var);
 void	add_stack(int num, t_stack **a);
-void	sort(t_var *var);
-int		sorted(t_stack **a);
-void	find_chunks(t_var *var);
-void	move_chunk(t_var *var, int min, int max);
-int		sort_stack_b(t_stack **b, int num, int len);
-int		find_hold_first(t_var *var, int min, int max);
-int		find_hold_last(t_var *var, int min, int max);
+void	check_dup(t_stack *lst, int ac);
 
 /*
 ** SWAP FUNCTIONS
@@ -81,12 +69,10 @@ void	rrr(t_stack **a, t_stack **b);
 /*
 ** UTILS FUNCTIONS
 */
-void	print_lst(t_stack *a, t_stack *b);
+
 void	return_error(int index);
 void	lst_rewind(t_stack **lst);
 void	lst_forward(t_stack **lst);
-int		lstlen(t_stack *lst);
-int		find_biggest(t_stack *lst);
-int		find_smallest(t_stack *lst);
+void	print_lst(t_stack *a, t_stack *b);
 
 #endif

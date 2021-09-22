@@ -6,11 +6,11 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 13:33:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/12 16:21:13 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/22 18:01:04 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	check_dup(t_stack *lst, int ac)
 {
