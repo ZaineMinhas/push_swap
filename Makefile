@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/22 18:00:06 by zminhas          ###   ########.fr        #
+#    Updated: 2021/09/23 17:18:52 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,26 @@ SRCS	=	srcs/push_swap/push_swap.c\
 			srcs/push_swap/swap.c\
 			srcs/push_swap/utils.c\
 			srcs/push_swap/utils2.c\
-			gnl/get_next_line.c\
-			gnl/get_next_line_utils.c\
+
+SRCS_BONUS	=	srcs/checker/checker.c\
+				srcs/checker/push.c\
+				srcs/checker/read.c\
+				srcs/checker/reverse_rotate.c\
+				srcs/checker/rotate.c\
+				srcs/checker/swap.c\
+				srcs/checker/utils.c\
+				gnl/get_next_line.c\
+				gnl/get_next_line_utils.c\
 
 OBJS	=	${SRCS:.c=.o}
+OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
-NAME	=	push_swap.a
 
-EXEC	=	push_swap
+NAME1	=	push_swap.a
+NAME2	=	checker.a
+
+EXEC1	=	push_swap
+EXEC2	=	checker
 
 LIB_PATH	=	./libft
 
@@ -48,26 +60,40 @@ LIB_PATH	=	./libft
 all:	${OBJS}
 		@clear
 		@make full -C ${LIB_PATH}
-		@mv ${LIB_PATH}/libft.a $(NAME)
-		@ar -rcs $(NAME) ${OBJS}
-		@gcc -Wall -Wextra -Werror $(NAME) -o $(EXEC)
+		@mv ${LIB_PATH}/libft.a $(NAME1)
+		@ar -rcs $(NAME1) ${OBJS}
+		@gcc -Wall -Wextra -Werror $(NAME1) -o $(EXEC1)
 		@echo "${GREEN}push_swap created !${RESET}"
+
+bonus:	${OBJS_BONUS}
+		@clear
+		@make full -C ${LIB_PATH}
+		@mv ${LIB_PATH}/libft.a $(NAME2)
+		@ar -rcs $(NAME2) ${OBJS_BONUS}
+		@gcc -Wall -Wextra -Werror $(NAME2) -o $(EXEC2)
+		@echo "${GREEN}checker created !${RESET}"
+		
 
 clean:
 		@clear
 		@rm -f ${OBJS}
-		@rm -f $(NAME)
+		@rm -f ${OBJS_BONUS}
+		@rm -f $(NAME1)
+		@rm -f $(NAME2)
 		@make clean -C ${LIB_PATH}
 		@echo "${YELLOW}Objects cleaned !${RESET}"
 
 fclean:
 		@clear
 		@rm -f ${OBJS}
-		@rm -f $(NAME)
-		@rm -f $(EXEC)
+		@rm -f ${OBJS_BONUS}
+		@rm -f $(NAME1)
+		@rm -f $(NAME2)
+		@rm -f $(EXEC1)
+		@rm -f $(EXEC2)
 		@make fclean -C ${LIB_PATH}
 		@echo "${RED}fclean done !${RESET}"
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all bonus clean fclean re

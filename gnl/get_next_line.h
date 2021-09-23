@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 16:10:16 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 17:21:58 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 17:14:54 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		get_next_line(int fd, char **line);
 size_t	ft_strlen_protect(const char *s);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_gnljoin(char const *s1, char const *s2);
-char	*ft_strdup(char *s1);
+char	*ft_strdup_remix(char *s1);
 char	*ft_strchr_dup_remix(const char *s, int c);
 
 #endif

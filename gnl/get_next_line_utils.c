@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 16:16:55 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/19 16:27:53 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 17:14:39 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_gnljoin(char const *s1, char const *s2)
 	return (dest);
 }
 
-char	*ft_strdup(char *s1)
+char	*ft_strdup_remix(char *s1)
 {
 	char	*dest;
 	int		size;
@@ -94,7 +94,7 @@ char	*ft_strchr_dup_remix(const char *s, int c)
 	{
 		if (s[i] == (char)c)
 		{
-			dest = ft_strdup((char *)(s + i + 1));
+			dest = ft_strdup_remix((char *)(s + i + 1));
 			free((void *)s);
 			return (dest);
 		}

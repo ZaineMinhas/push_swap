@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 19:18:44 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 18:01:46 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	checker(t_var *var)
 
 	if (var->b)
 		return ;
-	lst_rewind(var->a);
+	lst_rewind(&var->a);
 	tmp = var->a;
 	while (tmp->next)
 	{
@@ -39,7 +39,7 @@ static void	do_things2(t_var *var, char *line)
 	else if (!ft_strncmp(line, "rr", 3))
 		rr(&var->a, &var->b);
 	else if (!ft_strncmp(line, "rra", 4))
-		rra(var->a);
+		rra(&var->a);
 	else if (!ft_strncmp(line, "rrb", 4))
 		rrb(&var->b);
 	else if (!ft_strncmp(line, "rrr", 4))
@@ -63,10 +63,13 @@ static void	do_things(t_var *var)
 			pa(&var->b, &var->a);
 		else if (!ft_strncmp(line, "pb", 3))
 			pb(&var->a, &var->b);
+		else if (!ft_strncmp(line, "\0", 2))
+			break ;
 		do_things2(var, line);
 		lst_rewind(&var->a);
 		free(line);
 		line = NULL;
+		print_lst(var->a, var->b);
 		checker(var);
 	}
 }
@@ -78,10 +81,11 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
+	print_lst(var.a, var.b);
 	do_things(&var);
 	checker(&var);
-	ft_putendl_fd("KO", 1);
 	print_lst(var.a, var.b);
+	ft_putendl_fd("KO", 1);
 	exit(1);
 	return (0);
 }

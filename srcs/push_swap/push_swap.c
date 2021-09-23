@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:30:05 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 18:25:04 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,3 @@ int	main(int argc, char **argv)
 	exit(1);
 	return (0);
 }
-
-//la commande  : make && make clean && ./push_swap 1 2 3 7 8 14 19 20 4 16 9 5 18 17 13 6 10 11 12

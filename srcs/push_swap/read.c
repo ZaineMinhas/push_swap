@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 13:33:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:01:04 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 18:25:15 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,17 @@ void	add_stack(int num, t_stack **a)
 void	read_args(int ac, char **av, t_var *var)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (++i < ac)
 	{
-		if (!ft_isdigit(av[i][0]) && av[i][0] != '+' && av[i][0] != '-')
+		if (!av[i][0])
 			return_error(1);
+		j = -1;
+		while (av[i][++j])
+			if (!ft_isdigit(av[i][j]) && av[i][0] != '+' && av[i][0] != '-')
+				return_error(1);
 		add_stack(ft_atoi(av[i]), &var->a);
 	}
 	check_dup(var->a, ac);

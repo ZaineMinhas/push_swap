@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 18:55:22 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:01:24 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/23 17:52:09 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sa(t_stack **a)
 {
 	int	tmp;
 
+	if (!*a)
+		return ;
 	lst_rewind(a);
 	if ((*a)->next)
 	{
@@ -30,6 +32,8 @@ void	sb(t_stack **b)
 {
 	int	tmp;
 
+	if (!*b)
+		return ;
 	lst_rewind(b);
 	if ((*b)->next)
 	{
@@ -45,18 +49,24 @@ void	ss(t_stack **a, t_stack **b)
 	int	tmp;
 
 	lst_rewind(a);
-	if ((*a)->next)
+	if (*a)
 	{
-		tmp = (*a)->num;
-		(*a)->num = (*a)->next->num;
-		(*a)->next->num = tmp;
+		if ((*a)->next)
+		{
+			tmp = (*a)->num;
+			(*a)->num = (*a)->next->num;
+			(*a)->next->num = tmp;
+		}
 	}
 	lst_rewind(b);
-	if ((*b)->next)
+	if (*b)
 	{
-		tmp = (*b)->num;
-		(*b)->num = (*b)->next->num;
-		(*b)->next->num = tmp;
+		if ((*b)->next)
+		{
+			tmp = (*b)->num;
+			(*b)->num = (*b)->next->num;
+			(*b)->next->num = tmp;
+		}
 	}
 	ft_putendl_fd("ss", 1);
 }
