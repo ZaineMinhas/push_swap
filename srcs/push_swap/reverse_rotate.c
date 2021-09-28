@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:44:03 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 17:49:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/28 18:08:19 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rra(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if (*a)
+	if (!*a)
 		return ;
 	lst_forward(a);
 	tmp = *a;

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 18:01:46 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/28 18:17:18 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ static void	do_things(t_var *var)
 			break ;
 		do_things2(var, line);
 		lst_rewind(&var->a);
+		print_lst(var->a, var->b);
 		free(line);
 		line = NULL;
-		print_lst(var->a, var->b);
 		checker(var);
 	}
 }
@@ -81,10 +81,8 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
-	print_lst(var.a, var.b);
 	do_things(&var);
 	checker(&var);
-	print_lst(var.a, var.b);
 	ft_putendl_fd("KO", 1);
 	exit(1);
 	return (0);
