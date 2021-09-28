@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 18:55:22 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 17:56:26 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/28 20:02:54 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	ss(t_stack **a, t_stack **b)
 {
 	int	tmp;
 
+	lst_rewind(a);
 	if (*a)
 	{
-		lst_rewind(a);
 		if ((*a)->next)
 		{
 			tmp = (*a)->num;
@@ -56,9 +56,9 @@ void	ss(t_stack **a, t_stack **b)
 			(*a)->next->num = tmp;
 		}
 	}
+	lst_rewind(b);
 	if (*b)
 	{
-		lst_rewind(b);
 		if ((*b)->next)
 		{
 			tmp = (*b)->num;

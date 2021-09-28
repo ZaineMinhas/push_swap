@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/28 18:17:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/09/28 19:46:09 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	do_things(t_var *var)
 	line = NULL;
 	while (get_next_line(0, &line))
 	{
+		lst_rewind(&var->a);
 		if (!ft_strncmp(line, "sa", 3))
 			sa(&var->a);
 		else if (!ft_strncmp(line, "sb", 3))
@@ -81,6 +82,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	read_args(argc, argv, &var);
+	print_lst(var.a, var.b);
 	do_things(&var);
 	checker(&var);
 	ft_putendl_fd("KO", 1);
