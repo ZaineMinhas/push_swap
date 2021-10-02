@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 13:33:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 18:25:15 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/02 17:53:45 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,24 @@ void	read_args(int ac, char **av, t_var *var)
 {
 	int	i;
 	int	j;
+	int	first_char;
 
 	i = 0;
 	while (++i < ac)
 	{
+		first_char = 0;
 		if (!av[i][0])
 			return_error(1);
 		j = -1;
 		while (av[i][++j])
-			if (!ft_isdigit(av[i][j]) && av[i][0] != '+' && av[i][0] != '-')
+		{
+			if (!first_char && !ft_isdigit(av[i][j]) && \
+			av[i][j] != '+' && av[i][j] != '-')
 				return_error(1);
+			else if (first_char && !ft_isdigit(av[i][j]))
+				return_error(1);
+			first_char = 1;
+		}
 		add_stack(ft_atoi(av[i]), &var->a);
 	}
 	check_dup(var->a, ac);

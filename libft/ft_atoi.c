@@ -6,11 +6,18 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:50:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 18:23:55 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/02 17:48:35 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static void	atoi_error(void)
+{
+	ft_putendl_fd("Error", 1);
+	exit(1);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -26,16 +33,17 @@ int	ft_atoi(const char *str)
 	if (str[i] == ' ' || str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			pos_neg = -1;
+	if (!ft_isdigit(str[i]))
+		atoi_error();
 	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
 		nb_tmp = nb;
 		nb = nb * 10 + (str[i++] - 48);
-		if (nb < nb_tmp || nb > LLONG_MAX)
-		{
-			ft_putendl_fd("Error", 1);
-			exit(1);
-		}
+		if (nb < nb_tmp || (pos_neg == 1 && nb > INT_MAX))
+			atoi_error();
+		else if (pos_neg == -1 && (nb * pos_neg) < (unsigned long long)INT_MIN)
+			atoi_error();
 	}
 	return ((int)nb * pos_neg);
 }

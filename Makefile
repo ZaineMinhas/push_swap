@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/09/23 17:18:52 by zminhas          ###   ########.fr        #
+#    Updated: 2021/10/02 16:45:46 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ LIB_PATH	=	./libft
 
 all:	${OBJS}
 		@clear
-		@make full -C ${LIB_PATH}
+		@make -C ${LIB_PATH}
 		@mv ${LIB_PATH}/libft.a $(NAME1)
 		@ar -rcs $(NAME1) ${OBJS}
 		@gcc -Wall -Wextra -Werror $(NAME1) -o $(EXEC1)
@@ -67,7 +67,7 @@ all:	${OBJS}
 
 bonus:	${OBJS_BONUS}
 		@clear
-		@make full -C ${LIB_PATH}
+		@make -C ${LIB_PATH}
 		@mv ${LIB_PATH}/libft.a $(NAME2)
 		@ar -rcs $(NAME2) ${OBJS_BONUS}
 		@gcc -Wall -Wextra -Werror $(NAME2) -o $(EXEC2)
