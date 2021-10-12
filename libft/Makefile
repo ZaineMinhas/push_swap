@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 18:35:49 by zminhas           #+#    #+#              #
-#    Updated: 2021/10/02 16:49:15 by zminhas          ###   ########.fr        #
+#    Updated: 2021/10/12 15:18:38 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
 SRCS	=	ft_atoi.c\
+			ft_bzero.c\
+			ft_calloc.c\
 			ft_intlen.c\
 			ft_isdigit.c\
 			ft_itoa.c\
@@ -29,6 +31,7 @@ SRCS	=	ft_atoi.c\
 			ft_putnbr_fd.c\
 			ft_putstr_fd.c\
 			ft_strchr.c\
+			ft_strdup.c\
 			ft_strlen.c\
 			ft_strncmp.c\
 
