@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/28 18:12:06 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/15 15:35:14 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ typedef struct s_var
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		quarter;
-	int		half;
-	int		third;
+	int		chunk[3];
 	int		hold_first;
 	int		hold_last;
 }				t_var;
