@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/15 15:40:06 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/15 16:23:23 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,20 @@ void	move_all_chunks(t_var *var, int tab_len)
 	int	i;
 
 	i = -1;
-	while (++i <= tab_len / 4)
+	while (++i <= tab_len * 1 / 5)
 		move_chunk(var, INT_MIN, var->chunk[0]);
 	i--;
-	while (++i <= tab_len / 2)
+	while (++i <= tab_len * 2 / 5)
 		move_chunk(var, var->chunk[0] + 1, var->chunk[1]);
 	i--;
-	while (++i <= (tab_len * 3) / 4)
+	while (++i <= tab_len * 3 / 5)
 		move_chunk(var, var->chunk[1] + 1, var->chunk[2]);
 	i--;
+	while (++i <= tab_len * 4 / 5)
+		move_chunk(var, var->chunk[2] + 1, var->chunk[3]);
+	i--;
 	while (++i <= tab_len)
-		move_chunk(var, var->chunk[2] + 1, INT_MAX);
+		move_chunk(var, var->chunk[3] + 1, INT_MAX);
 	while (i--)
 		pa(&var->b, &var->a);
 }
@@ -100,9 +103,10 @@ void	find_chunks(t_var *var)
 	}
 	array[i] = var->a->num;
 	sort_tab(array, i);
-	var->chunk[0] = array[i / 4];
-	var->chunk[1] = array[i / 2];
-	var->chunk[2] = array[i * 3 / 4];
+	var->chunk[0] = array[i * 1 / 5];
+	var->chunk[1] = array[i * 2 / 5];
+	var->chunk[2] = array[i * 3 / 5];
+	var->chunk[3] = array[i * 4 / 5];
 	move_all_chunks(var, i);
 	free(array);
 }
