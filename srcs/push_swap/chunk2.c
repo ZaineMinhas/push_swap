@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 18:23:12 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:00:47 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/18 17:53:31 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	find_hold_first(t_var *var, int min, int max)
+int	find_hold_first(t_var *var, int chunk)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ int	find_hold_first(t_var *var, int min, int max)
 	lst_rewind(&var->a);
 	while (var->a->next)
 	{
-		if (var->a->num <= max && var->a->num >= min)
+		if (var->a->num <= chunk)
 		{
 			var->hold_first = var->a->num;
 			break ;
@@ -32,7 +32,7 @@ int	find_hold_first(t_var *var, int min, int max)
 	return (i);
 }
 
-int	find_hold_last(t_var *var, int min, int max)
+int	find_hold_last(t_var *var, int chunk)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int	find_hold_last(t_var *var, int min, int max)
 	lst_forward(&var->a);
 	while (var->a->prev)
 	{
-		if (var->a->num <= max && var->a->num >= min)
+		if (var->a->num <= chunk)
 		{
 			var->hold_last = var->a->num;
 			break ;

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/15 16:23:23 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/18 18:57:50 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void	sort_tab(int *array, int size)
 	int	tmp;
 
 	i = -1;
-	while (++i < size - 1)
+	while (++i < size)
 	{
 		j = -1;
-		while (++j < size - 1 - i)
+		while (++j < size - i)
 		{
 			if (array[j] > array[j + 1])
 			{
@@ -32,9 +32,13 @@ static void	sort_tab(int *array, int size)
 			}
 		}
 	}
+	i = -1;
+	while (++i <= size)
+		printf("%d ", array[i]);
+	printf("\n\n");
 }
 
-void	move_chunk(t_var *var, int min, int max)
+/*void	move_chunk(t_var *var, int chunk)
 {
 	int	i;
 	int	j;
@@ -61,52 +65,68 @@ void	move_chunk(t_var *var, int min, int max)
 			rb(&var->b);
 	lst_rewind(&var->a);
 	lst_rewind(&var->b);
-}
+}*/
 
-void	move_all_chunks(t_var *var, int tab_len)
+void	use_chunk(t_var *var, int chunk, int div)
 {
+	int	chunk_len;
 	int	i;
+	int	j;
 
-	i = -1;
-	while (++i <= tab_len * 1 / 5)
-		move_chunk(var, INT_MIN, var->chunk[0]);
-	i--;
-	while (++i <= tab_len * 2 / 5)
-		move_chunk(var, var->chunk[0] + 1, var->chunk[1]);
-	i--;
-	while (++i <= tab_len * 3 / 5)
-		move_chunk(var, var->chunk[1] + 1, var->chunk[2]);
-	i--;
-	while (++i <= tab_len * 4 / 5)
-		move_chunk(var, var->chunk[2] + 1, var->chunk[3]);
-	i--;
-	while (++i <= tab_len)
-		move_chunk(var, var->chunk[3] + 1, INT_MAX);
-	while (i--)
-		pa(&var->b, &var->a);
+	chunk_len = var->size / div;
+	printf("len = %d / %d == %d\n", var->size, div, var->size / div);
+	lst_rewind(&var->a);
+	while (chunk_len--)
+	{
+		i = find_hold_first(var, chunk);
+		j = find_hold_last(var, chunk);
+		printf("first == %d || %d == last\n", i , j);
+		if (i < j)
+			while (i--)
+				ra(&var->a);
+		else
+			while (j--)
+				rra(&var->a);
+		pb(&var->a, &var->b);
+		print_lst(var->a, var->b);
+	}
 }
 
-void	find_chunks(t_var *var)
+void	find_chunks(t_var *var, int div)
 {
 	int	*array;
 	int	i;
 
-	i = -1;
 	lst_rewind(&var->a);
 	array = (int *)malloc(sizeof(int) * lstlen(var->a));
 	if (!array)
 		return_error(0);
-	while (++i < lstlen(var->a) - 1)
+	var->size = -1;
+	while (++var->size < lstlen(var->a) - 1)
 	{
-		array[i] = var->a->num;
+		array[var->size] = var->a->num;
 		var->a = var->a->next;
 	}
-	array[i] = var->a->num;
-	sort_tab(array, i);
-	var->chunk[0] = array[i * 1 / 5];
-	var->chunk[1] = array[i * 2 / 5];
-	var->chunk[2] = array[i * 3 / 5];
-	var->chunk[3] = array[i * 4 / 5];
-	move_all_chunks(var, i);
+	array[var->size] = var->a->num;
+	sort_tab(array, var->size);
+	i = 0;
+	while (++i <= div)
+	{
+		if (i == div)
+		{
+			printf("\nSALUT\n");/*
+			lst_rewind(&var->a);
+			while (var->a->next)
+			{
+				pb(&var->a, &var->b);
+				var->a = var->a->next;
+			}
+			pb(&var->a, &var->b);
+			printf("yo\n");*/
+		}
+		printf("CHUNK = %d\n", array[var->size * i / div]);
+		//print_lst(var->a, var->b);
+		use_chunk(var, array[var->size * i / div], div);
+	}
 	free(array);
 }
