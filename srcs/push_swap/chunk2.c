@@ -6,53 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 18:23:12 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/18 17:53:31 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/19 19:30:58 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	find_hold_first(t_var *var, int chunk)
-{
-	int	i;
-
-	i = 0;
-	lst_rewind(&var->a);
-	while (var->a->next)
-	{
-		if (var->a->num <= chunk)
-		{
-			var->hold_first = var->a->num;
-			break ;
-		}
-		i++;
-		var->a = var->a->next;
-	}
-	lst_rewind(&var->a);
-	return (i);
-}
-
-int	find_hold_last(t_var *var, int chunk)
-{
-	int	i;
-
-	i = 0;
-	lst_forward(&var->a);
-	while (var->a->prev)
-	{
-		if (var->a->num <= chunk)
-		{
-			var->hold_last = var->a->num;
-			break ;
-		}
-		i++;
-		var->a = var->a->prev;
-	}
-	lst_rewind(&var->a);
-	return (++i);
-}
-
-static int	sort_stack_b2(t_stack **b, int num, int len)
+/*static int	sort_stack_a2()
 {
 	int	i;
 	int	j;
@@ -71,24 +31,27 @@ static int	sort_stack_b2(t_stack **b, int num, int len)
 		while (++j < len - i)
 			rrb(b);
 	return (i);
-}
+}*/
 
-int	sort_stack_b(t_stack **b, int num, int len)
+void	sort_stack_a(t_var *var, int biggest)
 {
 	int	i;
+	int	j;
 
-	if (!*b || !(*b)->next)
+	lst_rewind(&var->b);
+	i = find_first_big_b(var, biggest);
+	j = find_last_big_b(var, biggest);
+	if (i < j)
 	{
-		if (*b && (*b)->num > num)
-			return (-1);
-		return (0);
+		j = 0;
+		while (++j < i + 1)
+			rb(&var->b);
 	}
-	if (find_smallest(*b) > num)
-		return (-1);
-	else if (num > find_biggest(*b))
-		return (0);
-	lst_rewind(b);
-	i = sort_stack_b2(b, num, len);
-	lst_rewind(b);
-	return (i);
+	else
+	{
+		i = -1;
+		while (++i < j)
+			rrb(&var->b);
+	}
+	pa(&var->b, &var->a);
 }

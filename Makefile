@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/10/02 16:45:46 by zminhas          ###   ########.fr        #
+#    Updated: 2021/10/19 18:55:52 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ RESET		= $(shell tput -Txterm sgr0)
 SRCS	=	srcs/push_swap/push_swap.c\
 			srcs/push_swap/chunk.c\
 			srcs/push_swap/chunk2.c\
+			srcs/push_swap/find_hold.c\
 			srcs/push_swap/push.c\
 			srcs/push_swap/read.c\
 			srcs/push_swap/reverse_rotate.c\

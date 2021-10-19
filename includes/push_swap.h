@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/18 18:39:11 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/19 18:52:52 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ void	add_stack(int num, t_stack **a);
 void	sort(t_var *var);
 int		sorted(t_stack **a);
 void	find_chunks(t_var *var, int div);
-void	move_chunk(t_var *var, int min, int max);
-int		sort_stack_b(t_stack **b, int num, int len);
-int		find_hold_first(t_var *var, int chunk);
-int		find_hold_last(t_var *var, int chunk);
+void	sort_stack_a(t_var *var, int biggest);
+int		find_hold_first_a(t_var *var, int max);
+int		find_hold_last_a(t_var *var, int max);
+int		find_first_big_b(t_var *var, int big);
+int		find_last_big_b(t_var *var, int big);
 
 /*
 ** SWAP FUNCTIONS
@@ -88,5 +89,6 @@ void	lst_forward(t_stack **lst);
 int		lstlen(t_stack *lst);
 int		find_biggest(t_stack *lst);
 int		find_smallest(t_stack *lst);
+int		ternary(int a, int b, int c);
 
 #endif
