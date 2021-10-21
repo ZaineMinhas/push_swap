@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 19:18:33 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/19 18:52:52 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/21 16:18:59 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {
@@ -41,9 +40,10 @@ void	add_stack(int num, t_stack **a);
 void	sort(t_var *var);
 int		sorted(t_stack **a);
 void	find_chunks(t_var *var, int div);
-void	sort_stack_a(t_var *var, int biggest);
-int		find_hold_first_a(t_var *var, int max);
-int		find_hold_last_a(t_var *var, int max);
+void	push_chunk_b(t_var *var, int min_chunk, int max_chunk, int div);
+void	sort_stack_a(t_var *var, int biggest, int almost_biggest);
+int		find_hold_first_a(t_var *var, int min, int max);
+int		find_hold_last_a(t_var *var, int min, int max);
 int		find_first_big_b(t_var *var, int big);
 int		find_last_big_b(t_var *var, int big);
 

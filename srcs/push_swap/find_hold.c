@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:40:23 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/19 19:30:23 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/21 15:55:29 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	find_hold_first_a(t_var *var, int max)
+int	find_hold_first_a(t_var *var, int min, int max)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ int	find_hold_first_a(t_var *var, int max)
 	lst_rewind(&var->a);
 	while (var->a->next)
 	{
-		if (var->a->num <= max)
+		if (var->a->num >= min && var->a->num <= max)
 		{
 			var->hold_first = var->a->num;
 			break ;
@@ -32,7 +32,7 @@ int	find_hold_first_a(t_var *var, int max)
 	return (i);
 }
 
-int	find_hold_last_a(t_var *var, int max)
+int	find_hold_last_a(t_var *var, int min, int max)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int	find_hold_last_a(t_var *var, int max)
 	lst_forward(&var->a);
 	while (var->a->prev)
 	{
-		if (var->a->num <= max)
+		if (var->a->num >= min && var->a->num <= max)
 		{
 			var->hold_last = var->a->num;
 			break ;

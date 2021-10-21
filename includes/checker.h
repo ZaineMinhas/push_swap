@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:03:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 17:18:34 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/20 15:35:30 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "../gnl/get_next_line.h"
 
 typedef struct s_stack

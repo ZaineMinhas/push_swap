@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/19 19:31:24 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/21 17:23:37 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	sort_tab(int *array, int size)
 	}
 }
 
-void	use_chunk(t_var *var, int chunk, int div)
+void	push_chunk_b(t_var *var, int min_chunk, int max_chunk, int div)
 {
 	int	chunk_len;
 	int	i;
@@ -44,8 +44,8 @@ void	use_chunk(t_var *var, int chunk, int div)
 	lst_rewind(&var->a);
 	while (chunk_len-- && var->a)
 	{
-		i = find_hold_first_a(var, chunk);
-		j = find_hold_last_a(var, chunk);
+		i = find_hold_first_a(var, min_chunk, max_chunk);
+		j = find_hold_last_a(var, min_chunk, max_chunk);
 		if (i < j)
 			while (i--)
 				ra(&var->a);
@@ -54,6 +54,21 @@ void	use_chunk(t_var *var, int chunk, int div)
 				rra(&var->a);
 		pb(&var->a, &var->b);
 	}
+}
+
+static void	sort_to_a(t_var *var, int *array)
+{
+	if (var->size)
+		sort_stack_a(var, array[var->size], array[var->size - 1]);
+	else
+		sort_stack_a(var, array[var->size], array[var->size] - 1);
+	if (var->bool)
+	{
+		sort_stack_a(var, array[var->size++], array[var->size]);
+		sa(&var->a);
+		var->size -= 2;
+	}
+	var->bool = 0;
 }
 
 void	find_chunks(t_var *var, int div)
@@ -73,11 +88,12 @@ void	find_chunks(t_var *var, int div)
 	}
 	array[var->size] = var->a->num;
 	sort_tab(array, var->size);
-	i = 0;
+	i = -1;
 	while (++i <= div)
-		use_chunk(var, array[var->size * i / div], div);
+		push_chunk_b(var, array[var->size * i / div],
+			array[var->size * (i + 1) / div], div);
 	var->size++;
 	while (var->size--)
-		sort_stack_a(var, array[var->size]);
+		sort_to_a(var, array);
 	free(array);
 }
