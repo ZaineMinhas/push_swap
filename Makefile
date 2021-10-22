@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/08 19:21:50 by zminhas           #+#    #+#              #
-#    Updated: 2021/10/19 18:55:52 by zminhas          ###   ########.fr        #
+#    Updated: 2021/10/22 18:51:30 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS_BONUS	=	srcs/checker/checker.c\
 				srcs/checker/rotate.c\
 				srcs/checker/swap.c\
 				srcs/checker/utils.c\
+				srcs/checker/utils2.c\
 				gnl/get_next_line.c\
 				gnl/get_next_line_utils.c\
 

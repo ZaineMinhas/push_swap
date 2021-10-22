@@ -5,39 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 19:05:22 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/22 18:52:39 by zminhas          ###   ########.fr       */
+/*   Created: 2021/10/22 18:51:44 by zminhas           #+#    #+#             */
+/*   Updated: 2021/10/22 18:53:14 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/checker.h"
 
-int	find_biggest(t_stack *lst)
+int	lstlen(t_stack *lst)
 {
-	int	biggest;
+	int	i;
 
+	if (!(lst))
+		return (0);
+	i = 1;
 	lst_rewind(&lst);
-	biggest = lst->num;
-	while (lst->next)
+	while ((lst)->next)
 	{
-		if (biggest < lst->next->num)
-			biggest = lst->next->num;
-		lst = lst->next;
+		lst = (lst)->next;
+		i++;
 	}
-	return (biggest);
-}
-
-int	find_smallest(t_stack *lst)
-{
-	int	smallest;
-
-	lst_rewind(&lst);
-	smallest = lst->num;
-	while (lst->next)
-	{
-		if (smallest > lst->next->num)
-			smallest = lst->next->num;
-		lst = lst->next;
-	}
-	return (smallest);
+	return (i);
 }

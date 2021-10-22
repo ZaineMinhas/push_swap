@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:07:46 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/28 20:02:40 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/22 18:55:49 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if (!*a)
+	if (!*a || lstlen(*a) < 2)
 		return ;
 	lst_rewind(a);
 	tmp = *a;
@@ -31,7 +31,7 @@ void	rb(t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (!*b)
+	if (!*b || lstlen(*b) < 2)
 		return ;
 	lst_rewind(b);
 	tmp = *b;
@@ -46,7 +46,7 @@ void	rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (*a)
+	if (*a && lstlen(*a) >= 2)
 	{
 		lst_rewind(a);
 		tmp = *a;
@@ -56,7 +56,7 @@ void	rr(t_stack **a, t_stack **b)
 		(*a)->next = tmp;
 		(*a)->next->next = NULL;
 	}
-	if (*b)
+	if (*b && lstlen(*b) >= 2)
 	{
 		lst_rewind(b);
 		tmp = *b;

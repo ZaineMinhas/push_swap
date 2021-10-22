@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:03:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/20 15:35:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/22 18:53:10 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	return_error(int index);
 void	lst_rewind(t_stack **lst);
 void	lst_forward(t_stack **lst);
 void	print_lst(t_stack *a, t_stack *b);
+int		lstlen(t_stack *lst);
 
 #endif
