@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/23 18:05:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 16:43:20 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	return_error(int index)
 {
-	if (index)
+	if (index == 1)
 		ft_putstr_fd("Error\n", 1);
+	else if (index == 2)
+		ft_putstr_fd("KO\n", 1);
 	exit(1);
 }
 

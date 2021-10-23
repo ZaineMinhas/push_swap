@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:43:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/28 20:02:06 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 17:32:48 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,30 +61,28 @@ void	pa(t_stack **b, t_stack **a)
 {
 	int	tmp;
 
-	if (*b)
-	{
-		lst_rewind(a);
-		lst_rewind(b);
-		tmp = (*b)->num;
-		del_top(b);
-		add_top(a, tmp);
-		lst_rewind(a);
-		lst_rewind(b);
-	}
+	if (!*b)
+		return_error(2);
+	lst_rewind(a);
+	lst_rewind(b);
+	tmp = (*b)->num;
+	del_top(b);
+	add_top(a, tmp);
+	lst_rewind(a);
+	lst_rewind(b);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	int	tmp;
 
-	if (*a)
-	{
-		lst_rewind(a);
-		lst_rewind(b);
-		tmp = (*a)->num;
-		del_top(a);
-		add_top(b, tmp);
-		lst_rewind(a);
-		lst_rewind(b);
-	}
+	if (!*a)
+		return_error(2);
+	lst_rewind(a);
+	lst_rewind(b);
+	tmp = (*a)->num;
+	del_top(a);
+	add_top(b, tmp);
+	lst_rewind(a);
+	lst_rewind(b);
 }

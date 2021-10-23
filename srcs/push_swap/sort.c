@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:53:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/21 17:10:22 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 18:56:57 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,7 @@ void	sort(t_var *var)
 	else if (lstlen(var->a) <= 100)
 		find_chunks(var, 5);
 	else if (lstlen(var->a) <= 500)
-		find_chunks(var, 30);
+		find_chunks(var, 10);
+	else
+		find_chunks(var, 15);
 }

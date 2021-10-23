@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:07:46 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/22 18:55:49 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 17:21:38 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ra(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if (!*a || lstlen(*a) < 2)
-		return ;
+	if (lstlen(*a) < 2)
+		return_error(2);
 	lst_rewind(a);
 	tmp = *a;
 	(*a)->next->prev = NULL;
@@ -31,8 +31,8 @@ void	rb(t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (!*b || lstlen(*b) < 2)
-		return ;
+	if (lstlen(*b) < 2)
+		return_error(2);
 	lst_rewind(b);
 	tmp = *b;
 	(*b)->next->prev = NULL;
@@ -46,24 +46,20 @@ void	rr(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (*a && lstlen(*a) >= 2)
-	{
-		lst_rewind(a);
-		tmp = *a;
-		(*a)->next->prev = NULL;
-		lst_forward(a);
-		tmp->prev = *a;
-		(*a)->next = tmp;
-		(*a)->next->next = NULL;
-	}
-	if (*b && lstlen(*b) >= 2)
-	{
-		lst_rewind(b);
-		tmp = *b;
-		(*b)->next->prev = NULL;
-		lst_forward(b);
-		tmp->prev = *b;
-		(*b)->next = tmp;
-		(*b)->next->next = NULL;
-	}
+	if (lstlen(*a) < 2 || lstlen(*b) < 2)
+		return_error(2);
+	lst_rewind(a);
+	tmp = *a;
+	(*a)->next->prev = NULL;
+	lst_forward(a);
+	tmp->prev = *a;
+	(*a)->next = tmp;
+	(*a)->next->next = NULL;
+	lst_rewind(b);
+	tmp = *b;
+	(*b)->next->prev = NULL;
+	lst_forward(b);
+	tmp->prev = *b;
+	(*b)->next = tmp;
+	(*b)->next->next = NULL;
 }

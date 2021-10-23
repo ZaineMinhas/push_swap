@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:03:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/22 18:53:10 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 16:54:20 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_var
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		check;
 }				t_var;
 
 void	read_args(int ac, char **av, t_var *var);

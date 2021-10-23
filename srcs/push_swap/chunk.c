@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/21 17:23:37 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/23 16:34:20 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ void	push_chunk_b(t_var *var, int min_chunk, int max_chunk, int div)
 
 static void	sort_to_a(t_var *var, int *array)
 {
+	if (var->bool)
+	{
+		var->size++;
+		sort_stack_a(var, array[var->size], array[var->size]);
+		sa(&var->a);
+		var->size -= 2;
+		var->bool = 0;
+	}
 	if (var->size)
 		sort_stack_a(var, array[var->size], array[var->size - 1]);
 	else
 		sort_stack_a(var, array[var->size], array[var->size] - 1);
-	if (var->bool)
-	{
-		sort_stack_a(var, array[var->size++], array[var->size]);
-		sa(&var->a);
-		var->size -= 2;
-	}
-	var->bool = 0;
 }
 
 void	find_chunks(t_var *var, int div)
