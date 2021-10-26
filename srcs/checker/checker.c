@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/26 15:08:53 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 15:13:02 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 	read_args(argc, argv, &var);
 	do_things(&var);
 	checker(&var);
+	free_lst(&var.a, &var.b);
 	ft_putendl_fd("KO", 1);
-	exit(1);
-	return (0);
+	return (1);
 }
