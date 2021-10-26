@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:07:19 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/26 14:17:56 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 15:06:09 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ int	main(int argc, char **argv)
 	if (!sorted(&var.a))
 		sort(&var);
 	free_lst(&var.a, &var.b);
-	exit(1);
+	return (0);
 }
