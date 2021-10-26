@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/26 15:06:06 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 15:08:53 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	checker(t_var *var)
 	}
 	ft_putendl_fd("OK", 1);
 	free_lst(&var->a, &var->b);
-	return (0);
+	exit(0);
 }
 
 static void	do_things2(t_var *var, char *line)
