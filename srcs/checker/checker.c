@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:22:08 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/23 18:38:21 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:54:16 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ static void	checker(t_var *var)
 static void	do_things2(t_var *var, char *line)
 {
 	if (!ft_strncmp(line, "pb", 3) && ++var->check)
-		pb(&var->a, &var->b);
+		pb(var, &var->a, &var->b);
 	else if (!ft_strncmp(line, "ra", 3) && ++var->check)
-		ra(&var->a);
+		ra(var, &var->a);
 	else if (!ft_strncmp(line, "rb", 3) && ++var->check)
-		rb(&var->b);
+		rb(var, &var->b);
 	else if (!ft_strncmp(line, "rr", 3) && ++var->check)
-		rr(&var->a, &var->b);
+		rr(var, &var->a, &var->b);
 	else if (!ft_strncmp(line, "rra", 4) && ++var->check)
-		rra(&var->a);
+		rra(var, &var->a);
 	else if (!ft_strncmp(line, "rrb", 4) && ++var->check)
-		rrb(&var->b);
+		rrb(var, &var->b);
 	else if (!ft_strncmp(line, "rrr", 4) && ++var->check)
-		rrr(&var->a, &var->b);
+		rrr(var, &var->a, &var->b);
 }
 
 static void	do_things(t_var *var)
@@ -59,17 +59,17 @@ static void	do_things(t_var *var)
 		lst_rewind(&var->a);
 		do_things2(var, line);
 		if (!ft_strncmp(line, "pa", 3))
-			pa(&var->b, &var->a);
+			pa(var, &var->b, &var->a);
 		else if (!ft_strncmp(line, "sa", 3))
-			sa(&var->a);
+			sa(var, &var->a);
 		else if (!ft_strncmp(line, "sb", 3))
-			sb(&var->b);
+			sb(var, &var->b);
 		else if (!ft_strncmp(line, "ss", 3))
-			ss(&var->a, &var->b);
+			ss(var, &var->a, &var->b);
 		else if (!ft_strncmp(line, "\0", 2))
 			break ;
 		else if (!var->check)
-			return_error(1);
+			return_error(var, 1);
 		lst_rewind(&var->a);
 		free(line);
 		line = NULL;

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:53:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/23 18:56:57 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:36:15 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	sort3(t_stack **a)
 		sa(a);
 }
 
-static void	sort4(t_stack **a, t_stack **b)
+static void	sort4(t_var *var, t_stack **a, t_stack **b)
 {
 	int	small;
 
@@ -44,12 +44,12 @@ static void	sort4(t_stack **a, t_stack **b)
 	}
 	else
 		rra(a);
-	pb(a, b);
+	pb(var, a, b);
 	sort3(a);
-	pa(b, a);
+	pa(var, b, a);
 }
 
-static void	sort5(t_stack **a, t_stack **b)
+static void	sort5(t_var *var, t_stack **a, t_stack **b)
 {
 	int	small;
 
@@ -71,9 +71,9 @@ static void	sort5(t_stack **a, t_stack **b)
 	}
 	else
 		rra(a);
-	pb(a, b);
-	sort4(a, b);
-	pa(b, a);
+	pb(var, a, b);
+	sort4(var, a, b);
+	pa(var, b, a);
 }
 
 void	sort(t_var *var)
@@ -85,9 +85,9 @@ void	sort(t_var *var)
 		else if (lstlen(var->a) == 3)
 			sort3(&var->a);
 		else if (lstlen(var->a) == 4)
-			sort4(&var->a, &var->b);
+			sort4(var, &var->a, &var->b);
 		else if (lstlen(var->a) == 5)
-			sort5(&var->a, &var->b);
+			sort5(var, &var->a, &var->b);
 	}
 	else if (lstlen(var->a) <= 100)
 		find_chunks(var, 5);

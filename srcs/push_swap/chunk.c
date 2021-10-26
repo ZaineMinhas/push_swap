@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:46:09 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/23 16:34:20 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:28:52 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	push_chunk_b(t_var *var, int min_chunk, int max_chunk, int div)
 		else
 			while (j--)
 				rra(&var->a);
-		pb(&var->a, &var->b);
+		pb(var, &var->a, &var->b);
 	}
 }
 
@@ -80,7 +80,7 @@ void	find_chunks(t_var *var, int div)
 	lst_rewind(&var->a);
 	array = (int *)malloc(sizeof(int) * lstlen(var->a));
 	if (!array)
-		return_error(0);
+		return_error(var, 0);
 	var->size = -1;
 	while (++var->size < lstlen(var->a) - 1)
 	{

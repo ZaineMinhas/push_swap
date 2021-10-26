@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 18:23:12 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/21 17:17:02 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:29:08 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	sort_stack_a(t_var *var, int biggest, int almost_biggest)
 		lift_up(var, i, j, almost_biggest);
 	else
 		lift_down(var, i, j, almost_biggest);
-	pa(&var->b, &var->a);
+	pa(var, &var->b, &var->a);
 }

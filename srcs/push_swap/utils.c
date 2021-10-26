@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:01:29 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:19:35 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	return_error(int index)
+void	return_error(t_var *var, int index)
 {
 	if (!index)
 		ft_putstr_fd("Malloc error\n", 1);
@@ -20,6 +20,7 @@ void	return_error(int index)
 		ft_putstr_fd("Wrong argument\n", 1);
 	if (index == 2)
 		ft_putstr_fd("Duplicate argument\n", 1);
+	free_lst(&var->a, &var->b);
 	exit(1);
 }
 

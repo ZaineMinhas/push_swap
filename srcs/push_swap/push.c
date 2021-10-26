@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 14:43:17 by zminhas           #+#    #+#             */
-/*   Updated: 2021/09/22 18:00:59 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:29:22 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	del_top(t_stack **old)
 	}
 }
 
-static void	add_top(t_stack **new, int num)
+static void	add_top(t_var *var, t_stack **new, int num)
 {
 	t_stack	*elem;
 
@@ -39,7 +39,7 @@ static void	add_top(t_stack **new, int num)
 	{
 		elem = malloc(sizeof(t_stack));
 		if (!elem)
-			return_error(0);
+			return_error(var, 0);
 		elem->next = *new;
 		elem->prev = NULL;
 		elem->num = num;
@@ -50,14 +50,14 @@ static void	add_top(t_stack **new, int num)
 	{
 		*new = malloc(sizeof(t_stack));
 		if (!*new)
-			return_error(0);
+			return_error(var, 0);
 		(*new)->next = NULL;
 		(*new)->prev = NULL;
 		(*new)->num = num;
 	}
 }
 
-void	pa(t_stack **b, t_stack **a)
+void	pa(t_var *var, t_stack **b, t_stack **a)
 {
 	int	tmp;
 
@@ -66,12 +66,12 @@ void	pa(t_stack **b, t_stack **a)
 		lst_rewind(b);
 		tmp = (*b)->num;
 		del_top(b);
-		add_top(a, tmp);
+		add_top(var, a, tmp);
 		ft_putendl_fd("pa", 1);
 	}
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_var *var, t_stack **a, t_stack **b)
 {
 	int	tmp;
 
@@ -80,7 +80,7 @@ void	pb(t_stack **a, t_stack **b)
 		lst_rewind(a);
 		tmp = (*a)->num;
 		del_top(a);
-		add_top(b, tmp);
+		add_top(var, b, tmp);
 		ft_putendl_fd("pb", 1);
 	}
 }

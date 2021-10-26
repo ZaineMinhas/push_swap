@@ -6,18 +6,18 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:44:03 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/23 17:21:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:53:21 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
 
-void	rra(t_stack **a)
+void	rra(t_var *var, t_stack **a)
 {
 	t_stack	*tmp;
 
 	if (lstlen(*a) < 2)
-		return_error(2);
+		return_error(var, 2);
 	lst_forward(a);
 	tmp = *a;
 	(*a)->prev->next = NULL;
@@ -27,12 +27,12 @@ void	rra(t_stack **a)
 	(*a)->prev->next = *a;
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_var *var, t_stack **b)
 {
 	t_stack	*tmp;
 
 	if (lstlen(*b) < 2)
-		return_error(2);
+		return_error(var, 2);
 	lst_forward(b);
 	tmp = *b;
 	(*b)->prev->next = NULL;
@@ -42,12 +42,12 @@ void	rrb(t_stack **b)
 	(*b)->prev->next = *b;
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_var *var, t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
 	if (lstlen(*a) < 2 || lstlen(*b) < 2)
-		return_error(2);
+		return_error(var, 2);
 	lst_forward(a);
 	tmp = *a;
 	(*a)->prev->next = NULL;

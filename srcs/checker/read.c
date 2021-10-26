@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 13:33:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/02 17:54:04 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:47:32 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
 
-void	check_dup(t_stack *lst, int ac)
+void	check_dup(t_var *var, t_stack *lst, int ac)
 {
 	t_stack	*tmp;
 
@@ -23,20 +23,20 @@ void	check_dup(t_stack *lst, int ac)
 		while (lst->next)
 		{
 			if (tmp->num == lst->next->num)
-				return_error(1);
+				return_error(var, 1);
 			lst = lst->next;
 		}
 		lst = tmp->next;
 	}
 }
 
-void	add_stack(int num, t_stack **a)
+void	add_stack(t_var *var, t_stack **a, int num)
 {
 	if (!*a)
 	{
 		*a = malloc(sizeof(t_stack));
 		if (!*a)
-			return_error(1);
+			return_error(var, 1);
 		(*a)->num = num;
 		(*a)->prev = NULL;
 		(*a)->next = NULL;
@@ -45,7 +45,7 @@ void	add_stack(int num, t_stack **a)
 	{
 		(*a)->next = malloc(sizeof(t_stack));
 		if (!(*a)->next)
-			return_error(1);
+			return_error(var, 1);
 		(*a)->next->num = num;
 		(*a)->next->prev = *a;
 		(*a)->next->next = NULL;
@@ -64,18 +64,18 @@ void	read_args(int ac, char **av, t_var *var)
 	{
 		first_char = 0;
 		if (!av[i][0])
-			return_error(1);
+			return_error(var, 1);
 		j = -1;
 		while (av[i][++j])
 		{
 			if (!first_char && !ft_isdigit(av[i][j]) && \
 			av[i][j] != '+' && av[i][j] != '-')
-				return_error(1);
+				return_error(var, 1);
 			else if (first_char && !ft_isdigit(av[i][j]))
-				return_error(1);
+				return_error(var, 1);
 			first_char = 1;
 		}
-		add_stack(ft_atoi(av[i]), &var->a);
+		add_stack(var, &var->a, ft_atoi(av[i]));
 	}
-	check_dup(var->a, ac);
+	check_dup(var, var->a, ac);
 }

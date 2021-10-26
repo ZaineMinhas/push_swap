@@ -6,18 +6,19 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:51:51 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/23 16:43:20 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:45:39 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
 
-void	return_error(int index)
+void	return_error(t_var *var, int index)
 {
 	if (index == 1)
 		ft_putstr_fd("Error\n", 1);
 	else if (index == 2)
 		ft_putstr_fd("KO\n", 1);
+	free_lst(&var->a, &var->b);
 	exit(1);
 }
 
