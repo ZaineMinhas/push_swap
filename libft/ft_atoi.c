@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:50:02 by zminhas           #+#    #+#             */
-/*   Updated: 2021/10/02 17:48:35 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/10/29 15:08:00 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static void	atoi_error(void)
 
 int	ft_atoi(const char *str)
 {
-	unsigned long long		nb;
-	unsigned long long		nb_tmp;
-	int						pos_neg;
-	int						i;
+	long long	nb;
+	long long	nb_tmp;
+	int			pos_neg;
+	int			i;
 
 	i = 0;
 	pos_neg = 1;
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + (str[i++] - 48);
 		if (nb < nb_tmp || (pos_neg == 1 && nb > INT_MAX))
 			atoi_error();
-		else if (pos_neg == -1 && (nb * pos_neg) < (unsigned long long)INT_MIN)
+		else if (pos_neg == -1 && (nb * pos_neg) < (long long)INT_MIN)
 			atoi_error();
 	}
 	return ((int)nb * pos_neg);
